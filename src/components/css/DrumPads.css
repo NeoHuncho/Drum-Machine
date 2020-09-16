@@ -1,12 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans&display=swap');
 
 .drums {
-    background: rgb(19, 19, 19);
-    color: #fff;
-    font-family: 'Noto Sans', sans-serif;
-    display: grid;
-    gap: 2vw;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+       font-family: 'Noto Sans', sans-serif;
+       display: grid;
+       grid-template-columns: repeat(3, 1fr);
+       grid-template-rows: repeat(3, 1fr);
+       gap: 1px 1px;
 }
 
 .pad {
