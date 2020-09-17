@@ -5,62 +5,52 @@ import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
 import VolumeDown from '@material-ui/icons/VolumeDown';
 import VolumeUp from '@material-ui/icons/VolumeUp';
-import { makeStyles } from '@material-ui/core/styles';
-
-const useStyles = makeStyles({
-    root: {
-        width: 200,
-    },
-});
-
-export default function Controls() {
-    const classes = useStyles();
-    const [value, setValue] = React.useState(30);
-
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
-    };
 
 
+
+export class Controls extends Component {
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+             volume:'',
+             display:""
+        }
+    }
+    adjustVolume= (e) =>{
+        e.preventDefault();
+        this.setState({volume:e.target.value});
+        this.setState({display:(e.target.value*100)})
+        console.log(this.state.volume)
+    }
+        
+   
+
+render(){
     return (
         <div className="interface">
             
-            <div class="Power-" id='setting'>
+            <div className="Power-" id='setting'>
                 <h3>Power</h3>
-                <label class="switch">
+                <label className="switch">
                     <input type="checkbox" />
-                    <span class="slider"></span>
+                    <span className="slider"></span>
                 </label>
             </div>
-            <div class="Screen" id='setting'>
-                <h3>Display</h3>
+            <div className="Screen" id='setting'>
+                <h3>{this.state.display}</h3>
             </div>
 
-            <div class="Volume" id='setting'>
-                <div className={classes.root}>
-                    <Typography id="continuous-slider" gutterBottom>
-                      
-                    </Typography>
-                    <Grid container spacing={2}>
-                        <Grid item>
-                            <VolumeDown />
-                        </Grid>
-                        <Grid item xs>
-                            <Slider value={value} onChange={handleChange} aria-labelledby="continuous-slider" />
-                        </Grid>
-                        <Grid item>
-                            <VolumeUp />
-                        </Grid>
-                    </Grid>
-                    
-                </div>
+            <div className="volume" id='setting'>
+            <input type="range" min="0" max="1" step="0.01"  onChange={this.adjustVolume} />
             </div>
+       
 
-            <div class="Bank" id='setting'>
+            <div className="Bank" id='setting'>
             <h3>Bank</h3>
             <label class="switch">
                     <input type="checkbox" />
-                    <span class="slider"></span>
+                    <span className="slider"></span>
             </label>
             </div>
 
@@ -68,6 +58,6 @@ export default function Controls() {
 
         </div>
     )
-}
+}}
 
-
+export default Controls
