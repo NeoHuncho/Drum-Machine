@@ -1,8 +1,29 @@
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #2f3542;
+}
+
 .App {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    grid-template-rows: 1fr;
-    gap: 1px 1px;
-    grid-template-areas:
-      ". .";
+  -webkit-box-shadow: 10px 7px 30px 8px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 7px 30px 8px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 7px 30px 8px rgba(0, 0, 0, 0.75);
+  position: relative;
+  width: 65%;
+  padding: 1vw;
+  background-color: #f1f2f6;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-rows: 1fr;
+  gap: 1px 1px;
+  grid-template-areas: ". .";
+}
+
+@media screen and (max-width: 650px) {
+  .App {
+    transform: scale(0.7);
+    display: block;
+  }
 }
