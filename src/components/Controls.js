@@ -20,8 +20,8 @@ export class Controls extends Component {
     adjustVolume= (e) =>{
         e.preventDefault();
         this.setState({volume:e.target.value});
-        this.setState({display:(e.target.value*100)})
-        console.log(this.state.volume)
+        this.setState({display:("volume:   "+Math.round(e.target.value*100))});
+        
     }
         
    
