@@ -1,12 +1,28 @@
 .interface{
+  font-family: 'Noto Sans', sans-serif;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(4, 1fr);
-    gap: 1px 1px;
+    gap: 15px 1px;
+    justify-items: center;
+    align-items: center;
+    
+   
 }
-.Screen { grid-area: 2 / 1 / 3 / 2; }
+#setting{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 
-.Power- { grid-area: 1 / 1 / 2 / 2; }
+.Screen { grid-area: 2 / 1 / 3 / 2;
+ width: 80%;
+background-color: gray;
+color: whitesmoke;}
+
+.Power- { grid-area: 1 / 1 / 2 / 2;}
+
 
 .Volume { grid-area: 3 / 1 / 4 / 2; }
 
@@ -15,8 +31,9 @@
 .switch {
     position: relative;
     display: inline-block;
-    width: 60px;
+    width: 90px;
     height: 34px;
+    margin-left: 20%;
   }
   
   /* Hide default HTML checkbox */
@@ -64,4 +81,9 @@
     -ms-transform: translateX(26px);
     transform: translateX(26px);
   }
-  
+  @media screen and (max-width: 650px){
+    .interface{
+      padding: 0%;
+      padding-top: 5%;
+    }
+  }

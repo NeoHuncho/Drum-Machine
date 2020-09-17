@@ -25,5 +25,7 @@
   .App {
     transform: scale(0.7);
     display: block;
+    width: 80vw;
+    
   }
 }

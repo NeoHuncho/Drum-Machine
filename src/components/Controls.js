@@ -24,21 +24,22 @@ export default function Controls() {
 
     return (
         <div className="interface">
-            <div class="Power-">
+            
+            <div class="Power-" id='setting'>
                 <h3>Power</h3>
                 <label class="switch">
                     <input type="checkbox" />
                     <span class="slider"></span>
                 </label>
             </div>
-            <div class="Screen">
-                <h3>PlaceHolder</h3>
+            <div class="Screen" id='setting'>
+                <h3>Display</h3>
             </div>
 
-            <div class="Volume">
+            <div class="Volume" id='setting'>
                 <div className={classes.root}>
                     <Typography id="continuous-slider" gutterBottom>
-                        Volume
+                      
                     </Typography>
                     <Grid container spacing={2}>
                         <Grid item>
@@ -55,8 +56,8 @@ export default function Controls() {
                 </div>
             </div>
 
-            <div class="Bank">
-            <h3>Change Bank</h3>
+            <div class="Bank" id='setting'>
+            <h3>Bank</h3>
             <label class="switch">
                     <input type="checkbox" />
                     <span class="slider"></span>
