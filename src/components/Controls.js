@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './css/Controls.scss';
+import DrumPads from './DrumPads'
 
 
 export class Controls extends Component {
@@ -8,7 +9,8 @@ export class Controls extends Component {
 
         this.state = {
             volume: '',
-            display: ""
+            display: "",
+            power:false
         }
     }
     adjustVolume = (e) => {
@@ -17,16 +19,21 @@ export class Controls extends Component {
         this.setState({ display: ("volume:   " + Math.round(e.target.value * 100)) });
     }
 
-
-
+    power= (e) =>{
+       this.state.power=!this.state.power;
+       if(this.state.power==true){
+       this.setState({display:"on"})}
+       else{ this.setState({display:"off"})}
+    }
     render() {
+       
         return (
             <div className="interface">
 
                 <div className="Power-" id='setting'>
                     <h3>Power</h3>
                     <label className="switch">
-                        <input type="checkbox" />
+                        <input type="checkbox" onChange={this.power}/>
                         <span className="slider"></span>
                     </label>
                 </div>

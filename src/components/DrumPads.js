@@ -97,11 +97,15 @@ const bankTwo = [{
 }];
 
 export class drum_Pads extends Component {
-    playSound=(e)=>{
-  let result=bankOne.filter(element => e.target.getAttribute('name')===element.keyTrigger).map(element=> element.url)
-  let sound= new Audio(result);
+   
+  playSound=(e)=>{
+  let url=bankOne.filter(element => e.target.getAttribute('name')===element.keyTrigger).map(element=> element.url);
+  let id=bankOne.filter(element => e.target.getAttribute('name')===element.keyTrigger).map(element=> element.id);
+  let sound= new Audio(url);
   sound.play()
     }
+
+
     render() {
         return (
          <section class="drums">
