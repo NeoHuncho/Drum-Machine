@@ -10,7 +10,8 @@ export class Controls extends Component {
         this.state = {
             volume: '',
             display: "",
-            power:false
+            power:false,
+            bank:"a"
         }
     }
     adjustVolume = (e) => {
@@ -21,15 +22,21 @@ export class Controls extends Component {
 
     power= (e) =>{
        this.state.power=!this.state.power;
-       if(this.state.power==true){
+       if(this.state.power===true){
        this.setState({display:"on"})}
        else{ this.setState({display:"off"})}
     }
+    bank= (e) => {
+        console.log(e)
+    }
+
+
     render() {
        
         return (
+           
             <div className="interface">
-
+                  
                 <div className="Power-" id='setting'>
                     <h3>Power</h3>
                     <label className="switch">
@@ -49,7 +56,7 @@ export class Controls extends Component {
                 <div className="Bank" id='setting'>
                     <h3>Bank</h3>
                     <label class="switch">
-                        <input type="checkbox" />
+                        <input type="checkbox" onChange={this.bank}/>
                         <span className="slider"></span>
                     </label>
                 </div>
