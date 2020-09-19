@@ -1,17 +1,19 @@
-import { VOLUME_CHANGE, POWER_CHANGE, BANK_CHANGE, PLAY_SOUND } from '../actions/types'
+import { VOLUME_CHANGE, POWER_CHANGE, BANK_CHANGE, PLAY_SOUND, DISPLAY_SOUND } from '../actions/types'
 import {bankOne,bankTwo} from '../data/banks';
 
 const initialState = {
     volume: 100,
     display: "",
     power: false,
-    bank: "a",
-    keyTrigger:""
+    bank: false,
+    keyTrigger:"",
+    url:"",
+    
 }
 export default function (state = initialState, action) {
     switch (action.type) {
         case VOLUME_CHANGE:
-            console.log('reducer')
+            if(state.power===true)
             return {
                 ...state,
                 volume: action.payload,
@@ -32,6 +34,7 @@ export default function (state = initialState, action) {
                 }
             }
         case BANK_CHANGE:
+            if(state.power===true)
             if (action.payload === true) {
                 return {
                     ...state,
@@ -45,17 +48,27 @@ export default function (state = initialState, action) {
                     display: 'Bank A'
                 }
             }
-            case PLAY_SOUND:
-            {
-                if(state.bank==="a"){
-                let url=bankOne.filter(element => action.payload===element.keyTrigger).map(element=> element.url);
-                let sound= new Audio(url);
-                sound.play()}else{
-                let url=bankTwo.filter(element => action.payload===element.keyTrigger).map(element=> element.url);
-                let sound= new Audio(url);
-                sound.play()
+            case DISPLAY_SOUND:
+                if(state.bank===false){
+                return{
+                    ...state,
+                    url:bankOne.filter(element => action.payload===element.keyTrigger).map(element=> element.url),
+                    display:bankOne.filter(element => action.payload===element.keyTrigger).map(element=> element.id),
+                   
+                }}else{
+                    return{
+                        ...state,
+                    url:bankTwo.filter(element => action.payload===element.keyTrigger).map(element=> element.url),
+                    display:bankTwo.filter(element => action.payload===element.keyTrigger).map(element=> element.id),
+                    }
                 }
+
+            case PLAY_SOUND:
+           {
+                let sound= new Audio(state.url);
+                sound.play()
             }
+            
 
 
         default:

@@ -4,10 +4,7 @@ import { connect } from 'react-redux';
 import { volumeChange, powerChange,bankChange } from '../actions/postActions';
 
 const mapStateToProps = state => ({
-    volume: state.drumMachine.volume,
-    display: state.drumMachine.display,
-    power: state.drumMachine.power,
-    bank: state.drumMachine.bank
+    display: state.drumMachine.display
 })
 export class Controls extends Component {
     constructor(props) {
@@ -38,7 +35,7 @@ export class Controls extends Component {
                 <div className="Power-" id='setting'>
                     <h3>Power</h3>
                     <label className="switch">
-                        <input type="checkbox" onChange={this.power} />
+                        <input type="checkbox"  onChange={this.power} />
                         <span className="slider"></span>
                     </label>
                 </div>

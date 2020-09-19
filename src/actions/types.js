@@ -2,3 +2,4 @@ export const VOLUME_CHANGE= 'VOLUME_CHANGE';
 export const PLAY_SOUND= 'PLAY_SOUND';
 export const POWER_CHANGE= 'POWER_CHANGE';
 export const BANK_CHANGE= 'BANK_CHANGE';
+export const DISPLAY_SOUND="DISPLAY_SOUND"

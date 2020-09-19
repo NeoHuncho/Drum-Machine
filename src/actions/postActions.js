@@ -1,4 +1,4 @@
-import { VOLUME_CHANGE,POWER_CHANGE,BANK_CHANGE,PLAY_SOUND } from "./types";
+import { VOLUME_CHANGE,POWER_CHANGE,BANK_CHANGE,PLAY_SOUND,DISPLAY_SOUND } from "./types";
 
 
 export const volumeChange = (volume) => dispatch => {
@@ -24,9 +24,15 @@ export const bankChange = (bank) => dispatch => {
   })
 ;
 };
-export const playSound = (key) => dispatch => {
+export const playSound = () => dispatch => {
   dispatch({
-    type:PLAY_SOUND,
+    type:PLAY_SOUND
+  })
+;
+};
+export const displaySound = (key) => dispatch => {
+  dispatch({
+    type:DISPLAY_SOUND,
     payload:key
   })
 ;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './css/DrumPads.css';
 import { connect } from 'react-redux';
-import{playSound} from '../actions/postActions'
+import{playSound,displaySound} from '../actions/postActions'
 
 
 
@@ -11,8 +11,9 @@ export class drum_Pads extends Component {
   
 
   playSound=(e)=>{
-  this.props.playSound(e.target.getAttribute('name'));
-
+  this.props.displaySound(e.target.getAttribute('name'));
+  this.props.playSound();
+  
     }
 
 
@@ -33,4 +34,4 @@ export class drum_Pads extends Component {
     }
 }
 
-export default connect(null, {playSound})(drum_Pads);
+export default connect(null, {playSound,displaySound})(drum_Pads);
