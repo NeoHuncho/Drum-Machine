@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './css/Controls.scss';
 import { connect } from 'react-redux';
-import { volumeChange, powerChange } from '../actions/postActions';
+import { volumeChange, powerChange,bankChange } from '../actions/postActions';
 
 const mapStateToProps = state => ({
     volume: state.drumMachine.volume,
@@ -23,14 +23,9 @@ export class Controls extends Component {
 
     power = (e) => {
         this.props.powerChange(e.target.checked);
-        this.state.power = !this.state.power;
-        if (this.state.power === true) {
-            this.setState({ display: "on" })
-        }
-        else { this.setState({ display: "off" }) }
     }
     bank = (e) => {
-        console.log(e)
+        this.props.bankChange(e.target.checked);
     }
 
 
@@ -71,4 +66,4 @@ export class Controls extends Component {
     }
 }
 
-export default connect(mapStateToProps, { volumeChange, powerChange })(Controls);
+export default connect(mapStateToProps, { volumeChange, powerChange,bankChange })(Controls);
