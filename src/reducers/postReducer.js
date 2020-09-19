@@ -12,7 +12,8 @@ export default function (state = initialState, action) {
             console.log('reducer')
             return {
                 ...state,
-                volume: action.payload
+                volume: action.payload,
+                display: ("volume:   " + Math.round(action.payload * 100))
             };
         case DISPLAY_CHANGE:
             return {

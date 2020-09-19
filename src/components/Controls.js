@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import './css/Controls.scss';
-import DrumPads from './DrumPads'
+import { connect } from 'react-redux';
+import { volumeChange} from '../actions/postActions';
 
-
+const mapStateToProps = state => ({
+    volume: state.posts.volume,
+    display: state.posts.display
+})
 export class Controls extends Component {
     constructor(props) {
         super(props)
@@ -15,7 +19,7 @@ export class Controls extends Component {
         }
     }
     adjustVolume = (e) => {
-        e.preventDefault();
+       this.props.volumeChange(e.target.value);
         this.setState({ volume: e.target.value });
         this.setState({ display: ("volume:   " + Math.round(e.target.value * 100)) });
     }
@@ -45,7 +49,7 @@ export class Controls extends Component {
                     </label>
                 </div>
                 <div className="Screen" id='setting'>
-                    <h3>{this.state.display}</h3>
+                    <h3>{this.props.display}</h3>
                 </div>
 
                 <div className="volume" id='setting'>
@@ -68,4 +72,4 @@ export class Controls extends Component {
     }
 }
 
-export default Controls
+export default connect(mapStateToProps, { volumeChange })(Controls);
