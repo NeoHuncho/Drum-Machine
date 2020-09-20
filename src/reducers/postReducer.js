@@ -108,6 +108,10 @@ export default function (state = initialState, action) {
                 sound.volume = state.volume;
                 sound.play();
 
+            }else{
+                return{
+                    ...state
+                }
             }
             break;
 
