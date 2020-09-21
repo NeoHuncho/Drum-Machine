@@ -74,15 +74,15 @@ export default function (state = initialState, action) {
                 if (state.bank === false) {
                     return {
                         ...state,
-                        url: bankOne.filter(element => action.payload === element.keyTrigger).map(element => element.url),
-                        display: bankOne.filter(element => action.payload === element.keyTrigger).map(element => element.id),
+                        url: bankOne.filter(element => action.payload == element.keyCode).map(element => element.url),
+                        display: bankOne.filter(element => action.payload == element.keyCode).map(element => element.id),
 
                     }
                 } else {
                     return {
                         ...state,
-                        url: bankTwo.filter(element => action.payload === element.keyTrigger).map(element => element.url),
-                        display: bankTwo.filter(element => action.payload === element.keyTrigger).map(element => element.id),
+                        url: bankTwo.filter(element => action.payload == element.keyCode).map(element => element.url),
+                        display: bankTwo.filter(element => action.payload == element.keyCode).map(element => element.id),
                     }
                 }
             } else {
@@ -107,13 +107,14 @@ export default function (state = initialState, action) {
                 let sound = new Audio(state.url);
                 sound.volume = state.volume;
                 sound.play();
-
+                return{
+                    ...state
+                }
             }else{
                 return{
                     ...state
                 }
             }
-            break;
 
 
         default:

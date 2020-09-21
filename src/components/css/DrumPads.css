@@ -9,7 +9,7 @@
        
 }
 
-.pad {
+.drum-pad {
    -webkit-box-shadow: 10px 7px 30px 8px rgba(0, 0, 0, 0.75);
    -moz-box-shadow: 10px 7px 30px 8px rgba(0, 0, 0, 0.75);
    box-shadow: 10px 7px 30px 8px rgba(0, 0, 0, 0.75);
@@ -32,9 +32,10 @@
     background-repeat: no-repeat;
  }
   
-.pad:active{
+.drum-pad:active{
     box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
     transform: translateY(-3px) scale(0.95);
+    background-color: #0e270f;
  }
  @media screen and (max-width: 650px){
    .pad{

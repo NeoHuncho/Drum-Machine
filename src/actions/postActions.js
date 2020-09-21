@@ -30,10 +30,10 @@ export const playSound = () => dispatch => {
   })
 ;
 };
-export const displaySound = (key) => dispatch => {
+export const displaySound = (keyCode) => dispatch => {
   dispatch({
     type:DISPLAY_SOUND,
-    payload:key
+    payload:keyCode
   })
 ;
 };

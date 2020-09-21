@@ -7,7 +7,7 @@ import Store from './store'
 function App() {
   return (
     <Provider store={Store} >
-    <div className="App">
+    <div className="App" id="drum-machine">
       <DrumPads />
       <Controls />
     </div>

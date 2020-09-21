@@ -32,23 +32,23 @@ export class Controls extends Component {
 
             <div className="interface">
 
-                <div className="Power-" id='setting'>
+                <div className="Power setting" id=''>
                     <h3>Power</h3>
                     <label className="switch">
                         <input type="checkbox"  onChange={this.power} />
                         <span className="slider"></span>
                     </label>
                 </div>
-                <div className="Screen" id='setting'>
+                <div className="Screen setting" id='display'>
                     <h3>{this.props.display}</h3>
                 </div>
 
-                <div className="volume" id='setting'>
+                <div className="volume setting" id=''>
                     <input type="range" min="0" max="1" step="0.01" onChange={this.adjustVolume} />
                 </div>
 
 
-                <div className="Bank" id='setting'>
+                <div className="Bank setting" id=''>
                     <h3>Bank</h3>
                     <label class="switch">
                         <input type="checkbox" onChange={this.bank} />
