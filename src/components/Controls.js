@@ -13,19 +13,6 @@ export class Controls extends Component {
         }
     }
 
-
-    adjustVolume = (e) => {
-        this.props.volumeChange(e.target.value);
-    }
-
-    power = (e) => {
-        this.props.powerChange(e.target.checked);
-    }
-    bank = (e) => {
-        this.props.bankChange(e.target.checked);
-    }
-
-
     render() {
 
         return (
@@ -35,7 +22,7 @@ export class Controls extends Component {
                 <div className="Power setting" id=''>
                     <h3>Power</h3>
                     <label className="switch">
-                        <input type="checkbox"  onChange={this.power} />
+                        <input type="checkbox"  onChange={(e) => this.props.powerChange(e.target.checked)} />
                         <span className="slider"></span>
                     </label>
                 </div>
@@ -44,14 +31,14 @@ export class Controls extends Component {
                 </div>
 
                 <div className="volume setting" id=''>
-                    <input type="range" min="0" max="1" step="0.01" onChange={this.adjustVolume} />
+                    <input type="range" min="0" max="1" step="0.01" onChange={(e) => this.props.volumeChange(e.target.value)} />
                 </div>
 
 
                 <div className="Bank setting" id=''>
                     <h3>Bank</h3>
                     <label class="switch">
-                        <input type="checkbox" onChange={this.bank} />
+                        <input type="checkbox" onChange={(e)=>this.props.bankChange(e.target.checked)} />
                         <span className="slider"></span>
                     </label>
                 </div>
