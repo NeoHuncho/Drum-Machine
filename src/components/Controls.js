@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component,useState } from 'react';
 import './css/Controls.scss';
 import { connect } from 'react-redux';
 import { volumeChange, powerChange,bankChange } from '../actions/postActions';
-
+import {motion} from 'framer-motion'
 const mapStateToProps = state => ({
     display: state.drumMachine.display
 })
+
 export class Controls extends Component {
     constructor(props) {
         super(props)
@@ -14,7 +15,7 @@ export class Controls extends Component {
     }
 
     render() {
-
+     
         return (
 
             <div className="interface">
@@ -22,13 +23,13 @@ export class Controls extends Component {
                 <div className="Power setting" id=''>
                     <h3>Power</h3>
                     <label className="switch">
-                        <input type="checkbox"  onChange={(e) => this.props.powerChange(e.target.checked)} />
+                        <input type="checkbox"  onChange={(e) => {this.props.powerChange(e.target.checked);}} />
                         <span className="slider"></span>
                     </label>
                 </div>
-                <div className="Screen setting" id='display'>
+                <motion.div className="Screen setting" id='display'>
                     <h3>{this.props.display}</h3>
-                </div>
+                </motion.div>
 
                 <div className="volume setting" id=''>
                     <input type="range" min="0" max="1" step="0.01" onChange={(e) => this.props.volumeChange(e.target.value)} />

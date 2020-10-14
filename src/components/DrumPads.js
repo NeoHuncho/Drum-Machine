@@ -4,15 +4,17 @@ import { connect } from 'react-redux';
 import{playSound,displaySound} from '../actions/postActions'
 import {motion} from 'framer-motion'
 
-const animation={
-  hover: {
+
+ const hover= {
     scale: 1.02
-  },
-  tap:{
-    scale: 0.9, color: "red" ,duration:0.05
   }
+  const tap={
+    scale: 0.9, 
+  }
+
+function onTapStart(event,info){
+  
 }
-tap:{}
 
 
 export class drum_Pads extends Component {
@@ -37,15 +39,15 @@ export class drum_Pads extends Component {
     render() {
         return (
          <section class="drums">
-            <div whileHover="hover" whileTap={{ scale: 0.8, color: "red"}} class="drum-pad" id="81" onKeyPress={this.handleKeyPress.bind(this)}name="Q" onClick={this.playSound}>q</div>
-            <div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} class="drum-pad"id="87"  name="W" onClick={this.playSound}>w</div>
-            <div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} class="drum-pad" id="69" name="E" onClick={this.playSound}>e</div>
-            <div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} class="drum-pad"id="65"  name="A" onClick={this.playSound}>a</div>
-            <motion.div whileHover={{ scale: 1.02}} whileTap={{ scale: 0.9, color: "red" ,duration:0.05}} class="drum-pad" id="83" name="S" onClick={this.playSound}>s</motion.div>
-            <motion.div whileHover="hover" whileTap="tap" class="drum-pad" id="68" name="D" onClick={this.playSound}>d</motion.div>
-            <motion.div whileHover={{ scale: 1.02}} whileTap={{ scale: 0.9 }} class="drum-pad" id="90" name="Z" onClick={this.playSound}>z</motion.div>
-            <motion.div whileHover={{ scale: 1.02}} whileTap={{ scale: 0.9 }}class="drum-pad" id="88" name="X" onClick={this.playSound}>x</motion.div>
-            <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} class="drum-pad" id="67" name="C" onClick={this.playSound}>c</motion.div>
+            <motion.div whileHover={hover}onTapStart={onTapStart}  whileTap={tap} class="drum-pad" id="81" onKeyPress={this.handleKeyPress.bind(this)}name="Q" onClick={this.playSound}>q</motion.div>
+            <motion.div whileHover={hover} whileTap={tap} class="drum-pad"id="87"  name="W" onClick={this.playSound}>w</motion.div>
+            <motion.div whileHover={hover} whileTap={tap} class="drum-pad" id="69" name="E" onClick={this.playSound}>e</motion.div>
+            <motion.div whileHover={hover} whileTap={tap} class="drum-pad"id="65"  name="A" onClick={this.playSound}>a</motion.div>
+            <motion.div whileHover={hover} whileTap={tap} class="drum-pad" id="83" name="S" onClick={this.playSound}>s</motion.div>
+            <motion.div whileHover={hover} whileTap={tap} class="drum-pad" id="68" name="D" onClick={this.playSound}>d</motion.div>
+            <motion.div whileHover={hover} whileTap={tap} class="drum-pad" id="90" name="Z" onClick={this.playSound}>z</motion.div>
+            <motion.div whileHover={hover} whileTap={tap}class="drum-pad" id="88" name="X" onClick={this.playSound}>x</motion.div>
+            <motion.div whileHover={hover} whileTap={tap} class="drum-pad" id="67" name="C" onClick={this.playSound}>c</motion.div>
         </section>
         )
     }
