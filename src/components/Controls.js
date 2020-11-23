@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './css/Controls.scss';
+import './css/Controls.css';
 import { connect } from 'react-redux';
 import { volumeChange, powerChange,bankChange } from '../actions/postActions';
 import {motion} from 'framer-motion'
