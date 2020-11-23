@@ -74,15 +74,15 @@ export default function (state = initialState, action) {
                 if (state.bank === false) {
                     return {
                         ...state,
-                        url: bankOne.filter(element => action.payload == element.keyCode).map(element => element.url),
-                        display: bankOne.filter(element => action.payload == element.keyCode).map(element => element.id),
+                        url: bankOne.filter(element => action.payload === element.keyCode).map(element => element.url),
+                        display: bankOne.filter(element => action.payload === element.keyCode).map(element => element.id),
 
                     }
                 } else {
                     return {
                         ...state,
-                        url: bankTwo.filter(element => action.payload == element.keyCode).map(element => element.url),
-                        display: bankTwo.filter(element => action.payload == element.keyCode).map(element => element.id),
+                        url: bankTwo.filter(element => action.payload === element.keyCode).map(element => element.url),
+                        display: bankTwo.filter(element => action.payload === element.keyCode).map(element => element.id),
                     }
                 }
             } else {
