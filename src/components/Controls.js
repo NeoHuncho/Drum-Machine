@@ -1,4 +1,4 @@
-import React, { Component,useState } from 'react';
+import React, { Component } from 'react';
 import './css/Controls.scss';
 import { connect } from 'react-redux';
 import { volumeChange, powerChange,bankChange } from '../actions/postActions';
@@ -38,7 +38,7 @@ export class Controls extends Component {
 
                 <div className="Bank setting" id=''>
                     <h3>Bank</h3>
-                    <label class="switch">
+                    <label className="switch">
                         <input type="checkbox" onChange={(e)=>this.props.bankChange(e.target.checked)} />
                         <span className="slider"></span>
                     </label>
