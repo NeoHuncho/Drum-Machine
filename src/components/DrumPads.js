@@ -31,7 +31,7 @@ export class drum_Pads extends Component {
     }
     handleKeyPress=(e)=>{
 
-    this.props.displaySound(e.keyCode);
+    this.props.displaySound(e.keyCode.toString());
     this.props.playSound();
     }
 
